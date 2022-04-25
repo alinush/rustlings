@@ -10,13 +10,25 @@
 // No boiler plate code this time,
 // you can do this!
 
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
-//TODO: Add your code here
+//impl AppendBar for Vec<String> {
+//    fn append_bar(self) -> Self {
+//        let mut copy = self;
+//        copy.push("Bar".to_owned());
+//        copy
+//    }
+//}
+
+// TODO: I don't understand why we're allowed to change the definition of append_bar to take a mutable 'self'
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self {
+        self.push("Bar".to_owned());
+        self
+    }
+}
 
 #[cfg(test)]
 mod tests {
